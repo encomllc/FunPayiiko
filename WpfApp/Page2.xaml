@@ -1,0 +1,130 @@
+﻿<Page x:Class="WpfApp.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="1040"
+      Title="Page2" Width="1192.378">
+
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary ResourceDictionary.Source="ResourcesDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+    <Grid Grid.Name="GridBase">
+        <Grid Grid.Name="GridIcon" UIElement.Visibility="Hidden" Panel.Background="{StaticResource ResourceKey=LocalBlackColor}">
+            <Image Image.Name="ImageIcon" FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" Image.Stretch="None" />
+        </Grid>
+        <Grid Grid.Name="GridCode" UIElement.Visibility="Hidden" Panel.Background="{StaticResource ResourceKey=LightGrayColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ColumnDefinition.Width="3" />
+                <ColumnDefinition ColumnDefinition.Width="*" />
+                <ColumnDefinition ColumnDefinition.Width="*" />
+                <ColumnDefinition ColumnDefinition.Width="*" />
+                <ColumnDefinition ColumnDefinition.Width="3" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition RowDefinition.Height="20" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="10" />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" ContentControl.Content="Оплата бонусами UDS Game" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="4" Grid.Row="0" Grid.RowSpan="9" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="3" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Label.Name="lblCodeHelp" ContentControl.Content="ВВЕДИТЕ КОД" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FrameworkElement.Style="{DynamicResource GrayLabel}" />
+            <Border Border.BorderBrush="{StaticResource LightGrayColor}" Border.BorderThickness="4" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+                <TextBox TextBox.Name="TbCode" Control.FontSize="48" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" TextBox.TextAlignment="Right" />
+            </Border>
+            <Button Button.Name="BtnCode1" Grid.Column="1" Grid.Row="3" ContentControl.Content="1" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode2" Grid.Column="2" Grid.Row="3" ContentControl.Content="2" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode3" Grid.Column="3" Grid.Row="3" ContentControl.Content="3" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode4" Grid.Column="1" Grid.Row="4" ContentControl.Content="4" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode5" Grid.Column="2" Grid.Row="4" ContentControl.Content="5" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode6" Grid.Column="3" Grid.Row="4" ContentControl.Content="6" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode7" Grid.Column="1" Grid.Row="5" ContentControl.Content="7" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode8" Grid.Column="2" Grid.Row="5" ContentControl.Content="8" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode9" Grid.Column="3" Grid.Row="5" ContentControl.Content="9" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Grid.Column="1" Grid.Row="6"  UIElement.IsEnabled="False" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCode0" Grid.Column="2" Grid.Row="6" ContentControl.Content="0" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            <Button Button.Name="BtnCodeDelete" Grid.Column="3" Grid.Row="6" ContentControl.Content="X" FrameworkElement.Style="{DynamicResource DeleteButton}" FrameworkElement.Margin="4,3,2,1" />
+            <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ColumnDefinition.Width="*" />
+                    <ColumnDefinition ColumnDefinition.Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Button.Name="BtnCodeCancel" Grid.Column="0" Grid.Row="0" ContentControl.Content="Отмена" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+                <Button Button.Name="BtnCodeOK" Grid.Column="1" Grid.Row="0" ContentControl.Content="OK" UIElement.IsEnabled="False" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Name="GridInfo" UIElement.Visibility="Visible" Panel.Background="{StaticResource ResourceKey=LightGrayColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ColumnDefinition.Width="3" />
+                <ColumnDefinition ColumnDefinition.Width="*" />
+                <ColumnDefinition ColumnDefinition.Width="2*" />
+                <ColumnDefinition ColumnDefinition.Width="3" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition RowDefinition.Height="20" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="*" />
+                <RowDefinition RowDefinition.Height="10" />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" ContentControl.Content="Оплата бонусами UDS Game" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="3" Grid.Row="0" Grid.RowSpan="9" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" FrameworkElement.Style="{DynamicResource HeaderLabel}" />
+            <Label Label.Name="lblInfoHelp" ContentControl.Content="ТЕКУЩИЙ КЛИЕНТ UDS GAME" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FrameworkElement.Style="{DynamicResource GrayLabel}" />
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Column="1" Grid.Row="2">
+                <Label ContentControl.Content="КОД" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Row="2" Grid.Column="2">
+                <Label Label.Name="lblCode" ContentControl.Content="******" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Column="1" Grid.Row="3">
+                <Label ContentControl.Content="ФИО" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Row="3" Grid.Column="2">
+                <TextBlock TextBlock.Name="lblCustomerName" TextBlock.TextWrapping="WrapWithOverflow" TextBlock.Text="ФИО" FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextBlock.TextAlignment="Center" TextBlock.Foreground="{StaticResource ActiveForegroundColor}" TextBlock.FontWeight="{StaticResource HeaderLabelFontWeight}" TextBlock.FontFamily="{StaticResource MainFontFamily}" TextBlock.FontSize="24" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Column="1" Grid.Row="4">
+                <Label ContentControl.Content="БАЛАНС" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Row="4" Grid.Column="2">
+                <Label Label.Name="lblScores" ContentControl.Content="0" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Column="1" Grid.Row="5">
+                <Label Grid.Row="5" Grid.Column="1" ContentControl.Content="СКИДКА" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Border Border.BorderBrush="{StaticResource LocalBlackColor}" Border.BorderThickness="0 0 0 1" Grid.Row="5" Grid.Column="2">
+                <Label Label.Name="lblDiscount" Grid.Row="5" Grid.Column="2" ContentControl.Content="0%" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            </Border>
+            <Label Grid.Row="6" Grid.Column="1" ContentControl.Content="% БОНУС" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            <Label Label.Name="lblmaxScoresDiscount" Grid.Row="6" Grid.Column="2" ContentControl.Content="0%" FrameworkElement.Style="{DynamicResource SimpleValueLabel}" />
+            <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ColumnDefinition.Width="*" />
+                    <ColumnDefinition ColumnDefinition.Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Button.Name="BtnInfoCancel" Grid.Column="0" Grid.Row="0" ContentControl.Content="Сменить клиента" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+                <Button Button.Name="BtnInfoOK" Grid.Column="1" Grid.Row="0" ContentControl.Content="OK" FrameworkElement.Style="{DynamicResource SimpleButton}" />
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Page>

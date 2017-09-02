@@ -3,7 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPay.WPFApp", "FunPay.WPFApp\FunPay.WPFApp.csproj", "{51010AB7-3489-4E05-88D3-8F1B25AC7022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPay.PlaginLibrary", "FunPay.PlaginLibrary\FunPay.PlaginLibrary.csproj", "{94B183E6-617A-492C-A360-227E4A10CD05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPay.TestConsoleApp", "FunPay.TestConsoleApp\FunPay.TestConsoleApp.csproj", "{FF85AAF5-5C4F-4B3C-860D-8ADB18D284A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{11967828-58A0-4EAA-A2A6-AD6644ECDC7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPay.Library", "FunPay.Library\FunPay.Library.csproj", "{C4AAFFBF-F803-48C4-A387-F1622E10CA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPay.Core", "FunPay.Core\FunPay.Core.csproj", "{1B1F89B9-9E2A-43FF-A0EB-795B9CA93AE4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51010AB7-3489-4E05-88D3-8F1B25AC7022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51010AB7-3489-4E05-88D3-8F1B25AC7022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51010AB7-3489-4E05-88D3-8F1B25AC7022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51010AB7-3489-4E05-88D3-8F1B25AC7022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B183E6-617A-492C-A360-227E4A10CD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B183E6-617A-492C-A360-227E4A10CD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B183E6-617A-492C-A360-227E4A10CD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B183E6-617A-492C-A360-227E4A10CD05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF85AAF5-5C4F-4B3C-860D-8ADB18D284A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF85AAF5-5C4F-4B3C-860D-8ADB18D284A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF85AAF5-5C4F-4B3C-860D-8ADB18D284A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF85AAF5-5C4F-4B3C-860D-8ADB18D284A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11967828-58A0-4EAA-A2A6-AD6644ECDC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11967828-58A0-4EAA-A2A6-AD6644ECDC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11967828-58A0-4EAA-A2A6-AD6644ECDC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11967828-58A0-4EAA-A2A6-AD6644ECDC7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4AAFFBF-F803-48C4-A387-F1622E10CA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AAFFBF-F803-48C4-A387-F1622E10CA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AAFFBF-F803-48C4-A387-F1622E10CA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AAFFBF-F803-48C4-A387-F1622E10CA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1F89B9-9E2A-43FF-A0EB-795B9CA93AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1F89B9-9E2A-43FF-A0EB-795B9CA93AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1F89B9-9E2A-43FF-A0EB-795B9CA93AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1F89B9-9E2A-43FF-A0EB-795B9CA93AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

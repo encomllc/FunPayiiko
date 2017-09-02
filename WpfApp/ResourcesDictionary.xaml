@@ -1,0 +1,328 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:Double x:Key="HeaderFontSize" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        12
+    </system:Double>
+    <system:Double x:Key="ButtonFontSize" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        24
+    </system:Double>
+    <system:Double x:Key="HeaderLabelFontSize" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        30
+    </system:Double>
+    <system:Double x:Key="ValueLabelFontSize" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        36
+    </system:Double>
+    <FontFamily x:Key="MainFontFamily" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Segoe UI
+    </FontFamily>
+    <FontWeight x:Key="HeaderFontWeight" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Normal
+    </FontWeight>
+    <FontWeight x:Key="ButtonFontWeight" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Normal
+    </FontWeight>
+    <FontWeight x:Key="HeaderLabelFontWeight" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Bold
+    </FontWeight>
+    <FontWeight x:Key="ValueLabelFontWeight" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Bold
+    </FontWeight>
+    <SolidColorBrush x:Key="LocalBlackColor" SolidColorBrush.Color="#303030" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="LightGrayColor" SolidColorBrush.Color="#FFDEDEDE" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="MedGrayColor" SolidColorBrush.Color="#FFC8C8C8" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="DarkGrayColor" SolidColorBrush.Color="#FFA0A0A0" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="ActiveForegroundColor" SolidColorBrush.Color="#FF555555" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="InactiveForegroundColor" SolidColorBrush.Color="#FFC8C8C8" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="WhiteColor" SolidColorBrush.Color="White" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="YellowColor" SolidColorBrush.Color="Yellow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="RedColor" SolidColorBrush.Color="Red" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="PinkColor" SolidColorBrush.Color="Pink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <SolidColorBrush x:Key="VioletColor" SolidColorBrush.Color="#FFBAB2F9" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
+    <Style x:Key="HeaderLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.Background="{StaticResource LocalBlackColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Left" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource WhiteColor}" TextElement.FontWeight="{StaticResource HeaderFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource HeaderFontSize}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GrayLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.Background="{StaticResource DarkGrayColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource WhiteColor}" TextElement.FontWeight="{StaticResource HeaderLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource HeaderLabelFontSize}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RedLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="0, 0, 0, 3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="0,0,10,0" Border.BorderThickness="0,0,3,3" Border.Background="{StaticResource PinkColor}" Border.BorderBrush="{StaticResource RedColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource ActiveForegroundColor}" TextElement.FontWeight="{StaticResource HeaderLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource HeaderLabelFontSize}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleHeaderLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource ActiveForegroundColor}" TextElement.FontWeight="{StaticResource HeaderLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="14" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleValueLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource ActiveForegroundColor}" TextElement.FontWeight="{StaticResource ValueLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ValueLabelFontSize}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource ActiveForegroundColor}" TextElement.FontWeight="{StaticResource ValueLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ValueLabelFontSize}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DateLabel" TargetType="{x:Type Label}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Label}">
+                    <Grid Grid.Name="grid">
+                        <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.Foreground="{StaticResource ActiveForegroundColor}" TextElement.FontWeight="{StaticResource ValueLabelFontWeight}" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="18" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="SimpleButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource MedGrayColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ButtonFontSize}" TextElement.FontWeight="{StaticResource ButtonFontWeight}" TextElement.Foreground="{StaticResource ActiveForegroundColor}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="PaymentButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource MedGrayColor}">
+                            <TextBlock TextBlock.Text="{TemplateBinding ContentControl.Content}" TextBlock.TextAlignment="Center" FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextBlock.FontSize="{StaticResource ButtonFontSize}" TextBlock.FontFamily="{StaticResource MainFontFamily}" TextBlock.Foreground="{StaticResource ActiveForegroundColor}" TextBlock.FontWeight="bold" TextBlock.TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="RedPaymentButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource MedGrayColor}">
+                            <TextBlock TextBlock.Text="{TemplateBinding ContentControl.Content}" TextBlock.TextAlignment="Center" FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextBlock.FontSize="{StaticResource ButtonFontSize}" TextBlock.FontFamily="{StaticResource MainFontFamily}" TextBlock.Foreground="#FFFF0000" TextBlock.FontWeight="bold" TextBlock.TextWrapping="Wrap" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="VioletButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource VioletColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ButtonFontSize}" TextElement.FontWeight="bold" TextElement.Foreground="{StaticResource ActiveForegroundColor}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource VioletColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource VioletColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GrayButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource DarkGrayColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ButtonFontSize}" TextElement.FontWeight="{StaticResource ButtonFontWeight}" TextElement.Foreground="{StaticResource ActiveForegroundColor}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DeleteButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource MedGrayColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ButtonFontSize}" TextElement.FontWeight="{StaticResource ButtonFontWeight}" TextElement.Foreground="{StaticResource RedColor}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="ButtonBase.IsPressed" Trigger.Value="True">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource YellowColor}" Setter.Property="Border.Background" />
+                        </Trigger>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CheckedDotButton" TargetType="{x:Type Button}" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Setter Setter.Property="FrameworkElement.VerticalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.HorizontalAlignment" Setter.Value="Stretch" />
+        <Setter Setter.Property="FrameworkElement.Margin" Setter.Value="3" />
+        <Setter Setter.Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate ControlTemplate.TargetType="{x:Type Button}">
+                    <Grid Grid.Name="grid">
+                        <Border Border.Name="border" Border.CornerRadius="10" Border.Background="{StaticResource YellowColor}">
+                            <ContentPresenter FrameworkElement.HorizontalAlignment="Center" FrameworkElement.VerticalAlignment="Center" TextElement.FontFamily="{StaticResource MainFontFamily}" TextElement.FontSize="{StaticResource ButtonFontSize}" TextElement.FontWeight="{StaticResource ButtonFontWeight}" TextElement.Foreground="{StaticResource ActiveForegroundColor}" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Trigger.Property="UIElement.IsEnabled" Trigger.Value="False">
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource LightGrayColor}" Setter.Property="Border.Background" />
+                            <Setter Setter.TargetName="border" Setter.Value="{StaticResource MedGrayColor}" Setter.Property="Border.BorderBrush" />
+                            <Setter Setter.TargetName="border" Setter.Property="Border.BorderThickness" Setter.Value="2,2,2,2" />
+                            <Setter Setter.Value="{StaticResource InactiveForegroundColor}" Setter.Property="Control.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+ 
+
+ 

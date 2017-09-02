@@ -30,20 +30,16 @@ namespace FunPay.WPFApp
 
         public event WithdrawEnterDelegate WithdrawEnterEvent;
        
-        public void InitData(string code, string nikName, int like, double percentage, string information,
+        public void InitData(string code, string nikName, int like, double percentage, 
             string urlImage)
         {
-            Code.Content = code;
+           
             NikName.Content = nikName;
             Like.Content = like;
             Available.Content = like * percentage;
-            Information.Text = information;
+           
 
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(urlImage, UriKind.Absolute);
-            bitmap.EndInit();
-            Image.Source = bitmap;
+            
         }
 
         private void Keybord_DeleteEvent()

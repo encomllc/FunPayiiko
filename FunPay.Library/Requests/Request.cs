@@ -23,7 +23,7 @@ namespace FunPay.Library.Requests
         {
             if (code == "0000")
             {
-                return new User() { NikName = "Alexander Popov", Code = "0000", Id = "08163243", Information = "Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information Text information ", Percentage = 0.3, Like = 500, UrlImage = "https://maxcdn.icons8.com/Share/icon/Users//circled_user_female1600.png" };
+                return new User() { NikName = "Alexander Popov", Code = "0000", Id = "08163243", Percentage = 0.3, Like = 500, UrlImage = "https://maxcdn.icons8.com/Share/icon/Users//circled_user_female1600.png" };
             }
             else
             {

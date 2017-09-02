@@ -58,6 +58,7 @@ namespace FunPay.Core
                 StartLoginWindow();
 
             }
+            StartMessage("Привет мир");
         }
 
         /// <summary>
@@ -240,7 +241,7 @@ namespace FunPay.Core
             thread.Start();
         }
 
-        public void StartCompanyWindow()
+        private void StartCompanyWindow()
         {
             var thread = new Thread(new ThreadStart(() =>
             {
@@ -253,19 +254,31 @@ namespace FunPay.Core
 
         }
 
-        public void StartUserProfile(User user)
+        private void StartUserProfile(User user)
         {
             var thread = new Thread(new ThreadStart(() =>
             {
                 UserProfileWindow = new UserProfileWindow();
                 UserProfileWindow.WithdrawEnterEvent += UserProfileWindow_WithdrawEnterEvent;
-                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, user.Percentage, user.Information, user.UrlImage);
+                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, user.Percentage,  user.UrlImage);
                 UserProfileWindow.ShowDialog();
 
             }));
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
 
+        }
+
+        public void StartMessage(string text)
+        {
+            var thread = new Thread(new ThreadStart(() =>
+            {
+               Message message = new Message(text);
+                message.ShowDialog();
+
+            }));
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         #endregion

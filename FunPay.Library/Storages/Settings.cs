@@ -1,4 +1,6 @@
-﻿namespace FunPay.Library.Storages
+﻿using System.Collections.Generic;
+
+namespace FunPay.Library.Storages
 {
     public class Settings
     {
@@ -14,12 +16,16 @@
         /// Код
         /// </summary>
         public string Code { get; set; }
+
         public string Name { get; set; }
-        public string Hashtag { get; set; }
+
+        public List<string> Hashtags { get; set; }
+
         /// <summary>
         /// Версия 
         /// </summary>
         public string Version { get; set; }
+
         /// <summary>
         /// Число пользователей
         /// </summary>

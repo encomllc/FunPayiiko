@@ -27,10 +27,7 @@
         /// Процент на списание лайками
         /// </summary>
         public double Percentage { get; set; }
-        /// <summary>
-        /// Информация
-        /// </summary>
-        public string Information { get; set; }
+        
         /// <summary>
         /// ссылка на изображение
         /// </summary>

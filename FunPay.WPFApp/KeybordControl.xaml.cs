@@ -32,7 +32,7 @@ namespace FunPay.WPFApp
         public event NumeralDelegate NumeralEvent;
         public event DeleteNumeral DeleteEvent;
 
-        
+
         /// <summary>
         /// Добавляем события ко всем кнопкам
         /// </summary>
@@ -40,28 +40,23 @@ namespace FunPay.WPFApp
         {
             foreach (var mainGridChild in MainGrid.Children)
             {
-                (mainGridChild as Button).Click += KeybordControl_Click; ;
+                if ((mainGridChild as Button).Name != "Del")
+                    (mainGridChild as Button).Click += KeybordControl_Click; ;
             }
         }
 
         private void KeybordControl_Click(object sender, RoutedEventArgs e)
         {
             var text = (sender as Button).Content.ToString();
-            if (text == "del")
-            {
-                if (DeleteEvent != null)
-                    DeleteEvent();
-            }
-            else
-            {
-                if (NumeralEvent != null)
-                    NumeralEvent(text);
-            }
+            if(NumeralEvent != null)
+            NumeralEvent(text);
+           
 
         }
 
-       
-
-        
+        private void Del_Click(object sender, RoutedEventArgs e)
+        {
+            if (DeleteEvent != null) DeleteEvent();
+        }
     }
 }

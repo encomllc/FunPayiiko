@@ -14,7 +14,7 @@
         /// </summary>
         public string Code { get; set; }
 
-        public string Hashtag { get; set; }
+        
         /// <summary>
         /// Обращение
         /// </summary>

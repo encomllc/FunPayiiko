@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FunPay.WPFApp
 {
@@ -26,7 +28,23 @@ namespace FunPay.WPFApp
         public Message(string text)
         {
             InitializeComponent();
-            Text.Text = text;
+            Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
+            {
+                try
+                {
+                    
+                        Text.Text = text;
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
+            }));
+
+
+
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

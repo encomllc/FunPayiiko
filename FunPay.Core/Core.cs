@@ -14,6 +14,14 @@ namespace FunPay.Core
 {
     public class Core
     {
+        public Core()
+        {
+            this.ChangesScreen += Core_ChangesScreen;
+        }
+
+
+        private bool _isScreen = false;
+        
 
         /// <summary>
         /// Настройки
@@ -31,12 +39,41 @@ namespace FunPay.Core
         /// Коллекция для хранения пользователей
         /// </summary>
         public List<User> Users { get; set; } = new List<User>();
-
-
         private LoginWindow LoginWindow { get; set; }
         private MainWindow MainWindow { get; set; }
         private UserProfileWindow UserProfileWindow { get; set; }
+        private NavigationWindow NavigationWindow { get; set; }
 
+        public delegate void ChangeScreenDelegate();
+
+        public event ChangeScreenDelegate ChangesScreen;
+        
+
+        public bool IsScreen
+        {
+            get { return _isScreen; }
+            set
+            {
+                _isScreen = value;
+                if (ChangesScreen != null)
+                    ChangesScreen();
+            }
+        }
+
+        private void Core_ChangesScreen()
+        {
+            try
+            {
+               NavigationWindow.StateWindows(IsScreen);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Source);
+                
+            }
+           
+        }
 
         /// <summary>
         /// Запуск плагина
@@ -45,6 +82,7 @@ namespace FunPay.Core
         {
             //Запуск навигационной панели
             StartNavWindow();
+            
 
             if (Storage.ExistSettings())
             {
@@ -58,7 +96,7 @@ namespace FunPay.Core
                 StartLoginWindow();
 
             }
-            StartMessage("Привет мир");
+
         }
 
         /// <summary>
@@ -82,7 +120,7 @@ namespace FunPay.Core
             else
             {
                 //Error Message
-                MessageBox.Show("error");
+                StartMessage("Заведения с таким кодом не существует");
             }
         }
         public delegate void AddDicsontDelegate(int discont);
@@ -94,11 +132,12 @@ namespace FunPay.Core
         /// <param name="like"></param>
         private void UserProfileWindow_WithdrawEnterEvent(int like)
         {
+
             if (Users.Any())
             {
                 var user = Users.Last();
                 var maxWithdrawLike = user.Like * user.Percentage;
-                if (like < maxWithdrawLike)
+                if (like <= maxWithdrawLike)
                 {
                     var order = new Order();
                     order.Like = like;
@@ -116,13 +155,14 @@ namespace FunPay.Core
                 }
                 else
                 {
-                    MessageBox.Show("error");
+                    StartMessage("Нельзя списывать больше допустимого");
                 }
             }
             else
             {
-                MessageBox.Show("error");
+                StartMessage("Пожалуйста выберите пользователя");
             }
+
 
 
         }
@@ -142,7 +182,7 @@ namespace FunPay.Core
             }
             else
             {
-                MessageBox.Show("error");
+                StartMessage("Пользоватея с таким кодом не существует");
             }
         }
 
@@ -155,59 +195,77 @@ namespace FunPay.Core
             switch (button)
             {
                 case "company":
-                {
-                    if (Settings.Login)
-                        StartCompanyWindow();
-                    else
                     {
-                        StartLoginWindow();
-                    }
-
-                }
-                    break;
-                case "code":
-                {
-                    if (Settings.Login)
-                        StartMainWindow();
-                    else
-                    {
-                        StartLoginWindow();
-                    }
-                }
-                    break;
-                case "user":
-                {
-                    if (Settings.Login)
-                        if (Users.Any())
-                            StartUserProfile(Users.Last());
+                        if (Settings.Login)
+                            StartCompanyWindow();
                         else
                         {
-                            MessageBox.Show("error");
+                            StartLoginWindow();
                         }
-                    else
-                    {
-                        StartLoginWindow();
+
                     }
-                }
+                    break;
+                case "code":
+                    {
+                        if (IsScreen)
+                            if (Settings.Login)
+                                StartMainWindow();
+                            else
+                            {
+                                StartLoginWindow();
+                            }
+                        else
+                        {
+                            StartMessage("Пожалуйста перейдите на главный экран и повторите операцию. Списание лайков можно производить только на главном экране.");
+                        }
+                    }
+                    break;
+                case "user":
+                    {
+                        if (IsScreen)
+                            if (Settings.Login)
+                            if (Users.Any())
+                                StartUserProfile(Users.Last());
+                            else
+                            {
+                                StartMessage("Вы ещё не добавляли пользователей");
+                            }
+                        else
+                        {
+                            StartLoginWindow();
+                        }
+                        else
+                        {
+                            StartMessage("Пожалуйста перейдите на главный экран и повторите операцию. Списание лайков можно производить только на главном экране.");
+                        }
+                    }
                     break;
             }
         }
 
+      
         //Заглушка для снятия лайков
         public void WithdrawLike(Order order)
         {
             Request.SendOrder(order);
         }
 
+
+
+
         #region StartingWindows
 
         private void StartNavWindow()
         {
+
             var thread = new Thread(new ThreadStart(() =>
             {
-                NavigationWindow navigationWindow = new NavigationWindow();
-                navigationWindow.ClicButtonEvent += NavigationWindow_ClicButtonEvent;
-                navigationWindow.ShowDialog();
+                NavigationWindow = new NavigationWindow
+                {
+                    Topmost = true
+                };
+                NavigationWindow.ClicButtonEvent += NavigationWindow_ClicButtonEvent;
+                NavigationWindow.ShowDialog();
             }));
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
@@ -220,6 +278,7 @@ namespace FunPay.Core
             var thread = new Thread(new ThreadStart(() =>
             {
                 MainWindow = new MainWindow();
+                MainWindow.Topmost = true;
                 MainWindow.SearchEvent += MainWindow_SearchEvent;
                 MainWindow.ShowDialog();
 
@@ -234,6 +293,7 @@ namespace FunPay.Core
             var thread = new Thread(new ThreadStart(() =>
             {
                 LoginWindow = new LoginWindow();
+                LoginWindow.Topmost = true;
                 LoginWindow.EnterCodeEvent += LoginWindow_EnterCodeEvent;
                 LoginWindow.ShowDialog();
             }));
@@ -245,8 +305,8 @@ namespace FunPay.Core
         {
             var thread = new Thread(new ThreadStart(() =>
             {
-
                 CompanyWindow companyWindow = new CompanyWindow(Settings.Code, Settings.Name, Settings.Users, Settings.Like);
+                companyWindow.Topmost = true;
                 companyWindow.ShowDialog();
             }));
             thread.SetApartmentState(ApartmentState.STA);
@@ -259,8 +319,9 @@ namespace FunPay.Core
             var thread = new Thread(new ThreadStart(() =>
             {
                 UserProfileWindow = new UserProfileWindow();
+                UserProfileWindow.Topmost = true;
                 UserProfileWindow.WithdrawEnterEvent += UserProfileWindow_WithdrawEnterEvent;
-                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, user.Percentage,  user.UrlImage);
+                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, user.Percentage, user.UrlImage);
                 UserProfileWindow.ShowDialog();
 
             }));
@@ -273,7 +334,8 @@ namespace FunPay.Core
         {
             var thread = new Thread(new ThreadStart(() =>
             {
-               Message message = new Message(text);
+                Message message = new Message(text);
+                message.Topmost = true;
                 message.ShowDialog();
 
             }));

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FunPay.WPFApp
 {
@@ -49,6 +52,28 @@ namespace FunPay.WPFApp
         {
             if (ClicButtonEvent != null)
                 ClicButtonEvent("user");
+        }
+
+        public void StateWindows(bool state)
+        {
+            Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
+            {
+                try
+                {
+                    if (state)
+                        this.WindowState = WindowState.Normal;
+                    else
+                    {
+                        this.WindowState = WindowState.Minimized;
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message+"navWin");
+                }
+
+            }));
+            
         }
 
     }

@@ -8,7 +8,7 @@
         AllowsTransparency="true"
         WindowStyle="None"
         Title="NavigationWindow"
-        Width="450" Height="189"
+        Width="300" Height="120"
         Background="Transparent"  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseDown="Window_MouseDown">
     <Border BorderThickness="5" CornerRadius="5" Background="#FF333333" BorderBrush="#FF666666" Padding="1,2,1,1">
         <Grid>

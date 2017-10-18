@@ -12,8 +12,10 @@ namespace FunPay.TestConsoleApp
         static void Main(string[] args)
         {
            Core.Core core = new Core.Core();
+           
             core.Start();
-            
+            core.IsScreen = true;
+
             Console.WriteLine("Start");
             Console.ReadLine();
         }

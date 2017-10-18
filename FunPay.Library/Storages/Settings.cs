@@ -25,7 +25,11 @@ namespace FunPay.Library.Storages
         /// Версия 
         /// </summary>
         public string Version { get; set; }
-
+        /// <summary>
+        /// Пароль администратора
+        /// </summary>
+        public string Password { get; set; }
+       public bool IsPassword { get; set; }
         /// <summary>
         /// Число пользователей
         /// </summary>
@@ -34,5 +38,7 @@ namespace FunPay.Library.Storages
         /// Число лайков
         /// </summary>
         public int Like { get; set; }
+
+        public double Percentage { get; set; }
     }
 }

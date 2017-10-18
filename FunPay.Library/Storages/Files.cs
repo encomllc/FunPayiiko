@@ -50,7 +50,7 @@ namespace FunPay.Library.Storages
             using (FileStream fstream = new FileStream(Path.Combine(AppData, path, name), FileMode.OpenOrCreate))
             {
                 // преобразуем строку в байты
-                byte[] array = Encoding.Default.GetBytes(text);
+                byte[] array = Encoding.UTF8.GetBytes(text);
                 // запись массива байтов в файл
                 fstream.Write(array, 0, array.Length);
             }

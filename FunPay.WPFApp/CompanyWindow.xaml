@@ -21,15 +21,15 @@
             <Image Source="Images/logo.png" Margin="0,2"/>
             <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Top" Margin="10">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                    <Label Content="Идентификатор заведения:" VerticalContentAlignment="Center" Foreground="White"/>
+                    <Label Content="Идентификатор заведения:" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
                     <Label x:Name="Code" Content="133432343" VerticalContentAlignment="Center" Foreground="White" FontSize="20" Margin="0,-10,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,45,0,0">
-                    <Label Content="Компания:" VerticalContentAlignment="Center" Foreground="White"/>
+                    <Label Content="Компания:" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
                     <Label x:Name="Name" Content="ООО Солнышко" VerticalContentAlignment="Center" Foreground="White" FontSize="20" Margin="0,-10,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,20,0,0">
-                    <Label Content="Хештег(и) заведения:" VerticalContentAlignment="Center" Foreground="White"/>
+                    <Label Content="Хештег(и) заведения:" VerticalContentAlignment="Center" Foreground="White" FontSize="14"/>
                     <Label x:Name="Hashtags" Content="#хорошийнямкус" VerticalContentAlignment="Center" Foreground="White" FontSize="20" Margin="0,-10,0,0"/>
                 </StackPanel>
                 <Grid VerticalAlignment="Bottom" Margin="0,50,0,0">
@@ -38,19 +38,19 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="0,0,3,0">
-                        <TextBlock TextWrapping="Wrap" Text="Пользователей программы:" Foreground="White"/>
+                        <TextBlock TextWrapping="Wrap" Text="Пользователей программы:" Foreground="White" FontSize="14"/>
                         <Label x:Name="Users" Content="66" Foreground="White" FontSize="20"/>
 
                     </StackPanel>
                     <StackPanel Grid.Column="1" Margin="3,0,0,0">
 
-                        <TextBlock  TextWrapping="Wrap" Text="Списано лайков:" Foreground="White" Margin="0,0,44,0"/>
+                        <TextBlock  TextWrapping="Wrap" Text="Списано лайков:" Foreground="White" Margin="0,0,44,0" FontSize="14"/>
                         <Label x:Name="Likes" Content="44" Foreground="White" FontSize="20"/>
                     </StackPanel>
                 </Grid>
             </StackPanel>
             <Button  Grid.Row="2" Click="Button_Click" Style="{DynamicResource ButtonStyleKeybord}" Background="#FF990099">
-                <Image Source="Images/lanel1_close.png" Margin="80,0"/>
+                <Image Source="Images/lanel1_close.png" Margin="90,0"/>
             </Button>
 
         </Grid>

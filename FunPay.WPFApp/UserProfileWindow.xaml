@@ -50,13 +50,13 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Сancel" HorizontalContentAlignment="Center" Click="Сancel_Click" Style="{DynamicResource ButtonStyleKeybord}" Background="#FF5B5B5B">
-                    <Image Source="Images/icon5_cancel.png" Margin="0,15"/>
+                    <Image Source="Images/icon5_cancel.png" Margin="0,20"/>
                 </Button>
                 <Button x:Name="Enter" HorizontalContentAlignment="Center" Grid.Column="1" Click="Enter_Click"  Style="{DynamicResource ButtonStyleKeybord}" Background="#FF990099">
-                    <Image Source="Images/icon6_arrow.png" Margin="30,10"/>
+                    <Image Source="Images/icon6_arrow.png" Margin="50,10"/>
                 </Button>
             </Grid>
-            <TextBox x:Name="MainTextBox" Grid.Row="2" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox x:Name="MainTextBox" Grid.Row="2" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{DynamicResource TextBoxStyle}" FontSize="24"/>
             <local:KeybordControl x:Name="Keybord" Grid.Row="3"/>
         </Grid>
         

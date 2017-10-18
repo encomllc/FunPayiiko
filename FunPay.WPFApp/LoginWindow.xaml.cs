@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FunPay.WPFApp
 {
@@ -24,6 +26,27 @@ namespace FunPay.WPFApp
             InitializeComponent();
             Keybord.NumeralEvent += Keybord_NumeralEvent;
             Keybord.DeleteEvent += Keybord_DeleteEvent;
+        }
+
+        public LoginWindow(string text)
+        {
+            InitializeComponent();
+            Keybord.NumeralEvent += Keybord_NumeralEvent;
+            Keybord.DeleteEvent += Keybord_DeleteEvent;
+            Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
+            {
+                try
+                {
+                    Info.Text = text;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    MessageBox.Show(e.Source);
+                    MessageBox.Show(e.StackTrace);
+                }
+
+            }));
         }
 
         public delegate void EnterCodeDelegate(string code);

@@ -21,7 +21,7 @@
                 <RowDefinition Height="1.2*"/>
             </Grid.RowDefinitions>
             <Image Source="Images/logo.png" Grid.ColumnSpan="3" Margin="0,2"/>
-            <TextBlock  Grid.Row="1" TextWrapping="Wrap" Text="Введите код заведения" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,5,5,5" FontSize="20" Foreground="White"/>
+            <TextBlock x:Name="Info"  Grid.Row="1" TextWrapping="Wrap" Text="Введите код заведения" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,5,5,5" Foreground="White" FontSize="14"/>
             <TextBox x:Name="MainTextBox" Grid.Row="2" TextWrapping="Wrap" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SpellCheck.IsEnabled="True" FontSize="24" Style="{DynamicResource TextBoxStyle}" />
             <local:KeybordControl x:Name="Keybord" Grid.Row="3"/>
             <Grid Grid.Row="4">
@@ -30,10 +30,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Сancel" VerticalContentAlignment="Center" Click="Сancel_Click" Style="{DynamicResource ButtonStyleKeybord}" Background="#FF5B5B5B">
-                    <Image Source="Images/icon5_cancel.png" Margin="0,15"/>
+                    <Image Source="Images/icon5_cancel.png" Margin="0,20"/>
                 </Button>
                 <Button x:Name="Enter" Grid.Column="1" Click="Enter_Click" Style="{DynamicResource ButtonStyleKeybord}" Background="#FF990099">
-                    <Image Source="Images/icon6_arrow.png" Margin="30,10"/>
+                    <Image Source="Images/icon6_arrow.png" Margin="45,10"/>
                 </Button>
             </Grid>
         </Grid>

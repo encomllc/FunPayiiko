@@ -30,13 +30,16 @@ namespace FunPay.WPFApp
         /// <param name="name"></param>
         /// <param name="users"></param>
         /// <param name="likes"></param>
-        public CompanyWindow(string code, string name,int users,int likes)
+        public CompanyWindow(string code, string name,int users,int likes,List<string> hashtags)
         {
             InitializeComponent();
             Name.Content = name;
             Code.Content = code;
             Users.Content = users;
             Likes.Content = likes;
+            var hasht = "";
+            hashtags.ForEach(e => hasht += "#" + e + ", ");
+            Hashtags.Content += hasht;
 
         }
 

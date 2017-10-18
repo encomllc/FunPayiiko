@@ -64,6 +64,7 @@ namespace FunPay.Core
         {
             try
             {
+                if(NavigationWindow!=null)
                NavigationWindow.StateWindows(IsScreen);
             }
             catch (Exception e)
@@ -88,12 +89,14 @@ namespace FunPay.Core
             {
                 //Загружаем настройки из файла
                 Settings = JsonConvert.DeserializeObject<Settings>(Storage.GetSettings());
+                //Settings= Request.GetCode(set.Code);
+
                 //Start
             }
             else
             {
                 //Запускс окна входа
-                StartLoginWindow();
+                StartLoginWindow("Введите код заведения");
 
             }
 
@@ -105,23 +108,36 @@ namespace FunPay.Core
         /// <param name="code"></param>
         private void LoginWindow_EnterCodeEvent(string code)
         {
-            var sett = Request.GetCode(code);
-            if (sett.Id != null)
+            if (Settings.Login)
             {
-                sett.Login = true;
-                Settings = sett;
-                if (!Storage.Files.ExistFolder("FunPay"))
-                {
-                    Storage.Files.AddFolder("FunPay");
-                }
+                Settings.Password = code;
+                Settings.IsPassword = true;
                 Storage.AddSettings(JsonConvert.SerializeObject(Settings));
                 LoginWindow.Close();
             }
             else
             {
-                //Error Message
-                StartMessage("Заведения с таким кодом не существует");
+
+                var sett = Request.GetCode(code);
+                if (sett != null)
+                {
+                    sett.Login = true;
+                    Settings = sett;
+                    if (!Storage.Files.ExistFolder("FunPay"))
+                    {
+                        Storage.Files.AddFolder("FunPay");
+                    }
+                    Storage.AddSettings(JsonConvert.SerializeObject(Settings));
+                    LoginWindow.Close();
+                    StartLoginWindow("Введите код системного администратора для автоматического добавления скидки");
+                }
+                else
+                {
+                    //Error Message
+                    StartMessage("Заведения с таким кодом не существует");
+                }
             }
+
         }
         public delegate void AddDicsontDelegate(int discont);
 
@@ -136,17 +152,26 @@ namespace FunPay.Core
             if (Users.Any())
             {
                 var user = Users.Last();
-                var maxWithdrawLike = user.Like * user.Percentage;
+                var maxWithdrawLike = user.Like * Settings.Percentage;
                 if (like <= maxWithdrawLike)
                 {
                     var order = new Order();
                     order.Like = like;
-                    order.EstablishmentId = Settings.Id;
-                    order.UserId = user.Id;
+                    order.Placeid = Settings.Code;
+                    order.UserId = user.Code;
                     order.Id = Guid.NewGuid().ToString();
                     order.Date = DateTime.Now;
 
-                    WithdrawLike(order);
+                   var request= Request.SendOrder(order);
+                    if (request)
+                    {
+                        user.Like -= order.Like;
+                        StartMessage("Списание лайков прошло успешно");
+                    }
+                    else
+                    {
+                        StartMessage("Ошибка списания лайков");
+                    }
                     if (AddDiscontEvent != null)
                         AddDiscontEvent(order.Like);
                     UserProfileWindow.Close();
@@ -172,8 +197,8 @@ namespace FunPay.Core
         /// <param name="code"></param>
         private void MainWindow_SearchEvent(string code)
         {
-            var user = Request.GetUser(code);
-            if (user.Id != null)
+            var user = Request.GetUser(code,Settings.Code);
+            if (user != null)
             {
                 Users.Add(user);
                 MainWindow.Close();
@@ -200,7 +225,7 @@ namespace FunPay.Core
                             StartCompanyWindow();
                         else
                         {
-                            StartLoginWindow();
+                            StartLoginWindow("Введите код заведения");
                         }
 
                     }
@@ -212,7 +237,7 @@ namespace FunPay.Core
                                 StartMainWindow();
                             else
                             {
-                                StartLoginWindow();
+                                StartLoginWindow("Введите код заведения");
                             }
                         else
                         {
@@ -232,7 +257,7 @@ namespace FunPay.Core
                             }
                         else
                         {
-                            StartLoginWindow();
+                            StartLoginWindow("Введите код заведения");
                         }
                         else
                         {
@@ -244,11 +269,7 @@ namespace FunPay.Core
         }
 
       
-        //Заглушка для снятия лайков
-        public void WithdrawLike(Order order)
-        {
-            Request.SendOrder(order);
-        }
+       
 
 
 
@@ -288,11 +309,11 @@ namespace FunPay.Core
 
         }
 
-        private void StartLoginWindow()
+        private void StartLoginWindow(string text)
         {
             var thread = new Thread(new ThreadStart(() =>
             {
-                LoginWindow = new LoginWindow();
+                LoginWindow = new LoginWindow(text);
                 LoginWindow.Topmost = true;
                 LoginWindow.EnterCodeEvent += LoginWindow_EnterCodeEvent;
                 LoginWindow.ShowDialog();
@@ -305,7 +326,7 @@ namespace FunPay.Core
         {
             var thread = new Thread(new ThreadStart(() =>
             {
-                CompanyWindow companyWindow = new CompanyWindow(Settings.Code, Settings.Name, Settings.Users, Settings.Like);
+                CompanyWindow companyWindow = new CompanyWindow(Settings.Code, Settings.Name, Settings.Users, Settings.Like,Settings.Hashtags);
                 companyWindow.Topmost = true;
                 companyWindow.ShowDialog();
             }));
@@ -321,7 +342,7 @@ namespace FunPay.Core
                 UserProfileWindow = new UserProfileWindow();
                 UserProfileWindow.Topmost = true;
                 UserProfileWindow.WithdrawEnterEvent += UserProfileWindow_WithdrawEnterEvent;
-                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, user.Percentage, user.UrlImage);
+                UserProfileWindow.InitData(user.Code, user.NikName, user.Like, Settings.Percentage, user.UrlImage);
                 UserProfileWindow.ShowDialog();
 
             }));
